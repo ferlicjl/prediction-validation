@@ -54,7 +54,11 @@ with open(sys.argv[3]) as g:
         if(int(values[0]) > maxtime or maxtime == -1):
             maxtime = int(values[0])
                 
-                
+if window > maxtime - mintime + 1:
+    raise Warning("""The specified window is larger than the scope of the data. 
+    To calculate average error across the specified input stock information, use window size: """ + str(maxtime - mintime + 1))
+               
+
 # Open our output file for writing
 output = open(sys.argv[4], "w")
 
