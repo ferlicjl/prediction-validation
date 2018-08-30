@@ -53,7 +53,8 @@ with open(sys.argv[3]) as g:
         # If we encounter a time that is greater than our current maxtime, increase maxtime
         if(int(values[0]) > maxtime or maxtime == -1):
             maxtime = int(values[0])
-                
+
+# Warning if window size is larger than scope of data, execution halted
 if window > maxtime - mintime + 1:
     raise Warning("""The specified window is larger than the scope of the data. 
     To calculate average error across the specified input stock information, use window size: """ + str(maxtime - mintime + 1))
